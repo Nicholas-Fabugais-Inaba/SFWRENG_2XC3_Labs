@@ -1,0 +1,41 @@
+#!/bin/bash
+
+bname=`basename $0`
+echo "This is script \"$bname\" of Major Lab 1"
+
+# check number of command line arguments
+
+if [ $# -ne 1 ]
+then
+  echo "incorrect number of command line arguments, execution aborted"
+  echo "usage -- script1 <dirname>"
+  exit
+fi
+
+Files=`(find . -type f)`
+
+if [ -d $1 ]
+then
+  echo "$1 directory exists, deleting all its contents"
+  cd $1
+  ls $1
+  for f in $Files
+  do 
+   if [ -f f ]
+   then
+     rm f
+   elif [ -d f ]
+   then
+     rm -r f
+   fi
+  done
+else
+  echo "$1 directory does not exists, creating it"
+  mkdir $1
+fi
+
+# create two files
+
+cd $1
+echo 'this is file1' > file1
+echo 'this is file2' > file2
