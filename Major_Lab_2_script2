@@ -1,0 +1,28 @@
+#!/bin/bash
+
+echo '#include <stdio.h>' > x.c
+echo 'extern int functionA();' >> x.c
+echo 'extern int functionB();' >> x.c
+echo 'extern int functionC();' >> x.c
+echo 'int main() {' >> x.c
+echo '  printf("This is a system of three components: A, B, and C\n");' >> x.c
+echo '  printf("Component A\n");' >> x.c
+echo '  functionA();' >> x.c
+echo '  printf("Component B\n");' >> x.c
+echo '  functionB();' >> x.c
+echo '  printf("Component C\n");' >> x.c
+echo '  functionC();' >> x.c
+echo '  return 0;' >> x.c
+echo '}' >> x.c
+
+echo '#include <stdio.h>' > xA.c
+echo 'int functionA() {' >> xA.c
+echo '  printf("I am component A and I am fully operational\n");' >> xA.c
+echo '  return 0;' >> xA.c
+echo '}' >> xA.c
+
+make System
+
+System
+
+rm xA.c xA.o xB.c xB.o xC.c xC.o System x.c
