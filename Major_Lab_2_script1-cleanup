@@ -1,0 +1,7 @@
+#!/bin/bash
+
+bname=`basename $0`
+echo "This is script \"$bname\" of Major Lab 2"
+
+rm -r A
+rm -r B
