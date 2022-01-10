@@ -1,0 +1,27 @@
+#!/bin/bash
+
+bname=`basename $0`
+echo "This is script \"$bname\" of Major Lab 1"
+
+if [ -f "greetings.c" ]
+then
+  rm greetings.c
+  doit1=1
+else
+  doit1=0
+fi
+
+if [ -f "gr" ]
+then
+  rm gr
+  doit2=1
+else
+  doit2=0
+fi
+
+if [ $doit1 = 1 -o $doit2 = 1 ]
+then
+  echo "cleaning done"
+else
+  echo "nothing to clean"
+fi
