@@ -1,0 +1,40 @@
+!#/bin/bash
+
+bname=`basename $0`
+echo "This is script \"$bname\" of Major Lab 2"
+
+if [ $# -ne 2 ]
+then
+    echo "incorrect number of command line arguments, execution aborted"
+    exit
+fi
+
+echo "The source directory is to be $1 (y/n)"
+read response
+
+if [ $response = "n" ]
+then
+    echo "you submitted incorrect name for source directory, execution aborted"
+    exit
+elif [ $response != "y" ]
+then
+    echo "incorrect response, execution aborted"
+    exit
+fi
+
+echo "The destination directory is to be $2 (y/n)"
+read response2
+
+if [ $response2 = "n" ]
+then
+    echo "you submitted incorrect name for destination directory, execution aborted"
+    exit
+elif [ $response2 != "y" ]
+then
+    echo "incorrect response, execution aborted"
+    exit
+fi
+
+echo "moving files from $1 to $2"
+
+mv $1/* $2
